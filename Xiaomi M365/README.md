@@ -8,17 +8,17 @@ The code needs an executable bluepy-helper to be compiled from C source. This is
 
 To install the current released version, on most Debian-based systems:
 
-$ sudo apt-get install python-pip libglib2.0-dev
-$ sudo pip install bluepy
+`$ sudo apt-get install python-pip libglib2.0-dev`
+`$ sudo pip install bluepy`
 
 On Fedora do:
 
-$ sudo dnf install python-pip glib2-devel
+`$ sudo dnf install python-pip glib2-devel`
 
 For Python 3, you may need to use pip3:
 
 $ sudo apt-get install python3-pip libglib2.0-dev
-$ sudo pip3 install bluepy
+`$ sudo pip3 install bluepy`
 
 ## Usage
 
@@ -40,5 +40,5 @@ Root is required to run the progarm in order to gain access to the system's lowe
 
 Example to run the program:
 
-sudo python3 scooter-scan.py scan unlock
+`sudo python3 scooter-scan.py scan unlock`
 
