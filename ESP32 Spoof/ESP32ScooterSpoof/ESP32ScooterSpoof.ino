@@ -1,69 +1,83 @@
+#include <Arduino.h>
 #include <BLEDevice.h>
 #include <BLEServer.h>
 #include <BLEUtils.h>
 #include <BLE2902.h>
 
-BLEServer *pServer;
-BLEService *pService;
-BLECharacteristic *pTXCharacteristic;
-BLECharacteristic *pButtonCharacteristic;
+#define SCOOTER_NAME "dreame.scooter.epro"
+#define SCOOTER_MAC {0x68, 0xAB, 0xBC, 0x4E, 0x6C, 0x4E}
 
-#define SERVICE_UUID        "00000101-0065-6C62-2E74-6F696D2E696D"
-#define TX_CHARACTERISTIC_UUID "00000100-0065-6C62-2E74-6F696D2E696D"
-#define BUTTON_CHARACTERISTIC_UUID "00000100-0065-6C62-2E74-6F696D2E696D"
-
-#define BUTTON_PIN 2 // Cambia el pin según corresponda
-
-// Definimos la MAC personalizada (La misma que el Xioami Scooter Lite 3)
-uint8_t newMAC[] = {0x68, 0xAB, 0xBC, 0x4E, 0x6C, 0x4E};
-
-class MyServerCallbacks : public BLEServerCallbacks {
-    void onConnect(BLEServer* pServer) {
-      Serial.println("C");
-    };
-
-    void onDisconnect(BLEServer* pServer) {
-      Serial.println("D");
-    }
-};
+BLEServer *pServer = NULL;
+BLECharacteristic *pCharacteristic = NULL;
+BLECharacteristic *pCharacteristicNotification = NULL;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
-  // Cambiamos la MAC personalizada
-  if (esp_base_mac_addr_set(newMAC) == ESP_OK) {
-    Serial.println("S");
-  } else {
-    Serial.println("F");
-  }
-  BLEDevice::init("dreame.scooter.epro");
+  Serial.println("Starting BLE work!");
+
+  BLEDevice::init(SCOOTER_NAME);
   pServer = BLEDevice::createServer();
-  pServer->setCallbacks(new MyServerCallbacks());
-  
-  pService = pServer->createService(SERVICE_UUID);
-  
-  pTXCharacteristic = pService->createCharacteristic(
-                                         TX_CHARACTERISTIC_UUID,
-                                         BLECharacteristic::PROPERTY_NOTIFY
-                                       );
-  
-  pButtonCharacteristic = pService->createCharacteristic(
-                                         BUTTON_CHARACTERISTIC_UUID,
-                                         BLECharacteristic::PROPERTY_READ |
-                                         BLECharacteristic::PROPERTY_WRITE
-                                       );
-  
+
+  // Create the first service and characteristics
+  BLEService *pService = pServer->createService(BLEUUID("0000fe95-0000-1000-8000-00805f9b34fb"));
+  pCharacteristic = pService->createCharacteristic(
+    BLEUUID("00000004-0000-1000-8000-00805f9b34fb"),
+    BLECharacteristic::PROPERTY_READ
+  );
+
+  pCharacteristicNotification = pService->createCharacteristic(
+    BLEUUID("00000010-0000-1000-8000-00805f9b34fb"),
+    BLECharacteristic::PROPERTY_NOTIFY | BLECharacteristic::PROPERTY_WRITE_NR
+  );
+  pCharacteristicNotification->addDescriptor(new BLE2902());
+
   pService->start();
-  
-  pServer->getAdvertising()->start();
-  Serial.println("W8");
+
+  // Create the second service and characteristics
+  BLEService *pService2 = pServer->createService(BLEUUID("00000100-0065-6c62-2e74-6f696d2e696d"));
+  pCharacteristic = pService2->createCharacteristic(
+    BLEUUID("00000101-0065-6c62-2e74-6f696d2e696d"),
+    BLECharacteristic::PROPERTY_WRITE_NR
+  );
+
+  BLECharacteristic *pCharacteristicNotify = pService2->createCharacteristic(
+    BLEUUID("00000102-0065-6c62-2e74-6f696d2e696d"),
+    BLECharacteristic::PROPERTY_NOTIFY
+  );
+  pCharacteristicNotify->addDescriptor(new BLE2902());
+
+  pService2->start();
+
+  // Create the third service and characteristics
+  BLEService *pService3 = pServer->createService(BLEUUID("00001000-0065-6c62-2e74-6f696d2e696d"));
+  BLECharacteristic *pCharacteristicWrite = pService3->createCharacteristic(
+    BLEUUID("00001001-0065-6c62-2e74-6f696d2e696d"),
+    BLECharacteristic::PROPERTY_WRITE
+  );
+
+  BLECharacteristic *pCharacteristicNotifyRead = pService3->createCharacteristic(
+    BLEUUID("00001002-0065-6c62-2e74-6f696d2e696d"),
+    BLECharacteristic::PROPERTY_NOTIFY | BLECharacteristic::PROPERTY_READ
+  );
+  pCharacteristicNotifyRead->addDescriptor(new BLE2902());
+
+  pCharacteristicNotifyRead = pService3->createCharacteristic(
+    BLEUUID("00001003-0065-6c62-2e74-6f696d2e696d"),
+    BLECharacteristic::PROPERTY_NOTIFY | BLECharacteristic::PROPERTY_READ
+  );
+  pCharacteristicNotifyRead->addDescriptor(new BLE2902());
+
+  pService3->start();
+
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->setScanResponse(false);
+  pAdvertising->setMinPreferred(0x06); // functions that help with iPhone connections issue
+  pAdvertising->setMinPreferred(0x12);
+  BLEDevice::startAdvertising();
+  Serial.println("Waiting a client connection to notify...");
 }
 
 void loop() {
-  // Lee el estado del botón y actualiza el valor de la característica correspondiente
-  bool buttonState = digitalRead(BUTTON_PIN);
-  pButtonCharacteristic->setValue((uint8_t*)&buttonState, 1);
-  pButtonCharacteristic->notify();
-
-  delay(1000); // Actualiza cada segundo
+  // Here we could simulate notifications, reads, and writes as per the log
+  delay(1000);
 }
