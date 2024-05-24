@@ -2,17 +2,17 @@
 #include <BLEUtils.h>
 #include <BLEServer.h>
 #include <esp_bt_device.h>
-#include <BLE2902.h> // Asegurarse de que la librería BLE2902 esté incluida
+#include <BLE2902.h> 
 
-// Dirección MAC del scooter real
+// Dirección MAC del Xiaomi electric scooter Lite 3
 uint8_t scooterMAC[] = {0x68, 0xAB, 0xBC, 0x4E, 0x6C, 0x4E};
 
-// Nombre del dispositivo scooter
+// Nombre del scooter
 const char* deviceName = "dreame.scooter.epro";
 
-// UUIDs de los servicios y características
-#define SERVICE_UUID_FE95 "0000fe95-0000-1000-8000-00805f9b34fb"
-#define SERVICE_UUID_0100 "00000100-0065-6c62-2e74-6f696d2e696d"
+// UUIDs de los servicios y características obtenidos en los logs
+#define SERVICE_UUID_FE95 "0000fe95-0000-1000-8000-00805f9b34fb" //95
+#define SERVICE_UUID_0100 "00000100-0065-6c62-2e74-6f696d2e696d" //TX/RX
 #define SERVICE_UUID_1000 "00001000-0065-6c62-2e74-6f696d2e696d"
 
 #define CHARACTERISTIC_UUID_04 "00000004-0000-1000-8000-00805f9b34fb"
@@ -64,7 +64,7 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Starting BLE work!");
 
-  // Cambiar la dirección MAC de la ESP32
+  // Spoofing de la MAC
   esp_base_mac_addr_set(scooterMAC);
   
   // Inicializar el dispositivo BLE
@@ -172,7 +172,7 @@ void setup() {
 
   pService1000->start();
 
-  // Iniciar la publicidad BLE
+  // Advertising BLE
   BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
   pAdvertising->addServiceUUID(SERVICE_UUID_FE95);
   pAdvertising->addServiceUUID(SERVICE_UUID_0100);
@@ -184,6 +184,5 @@ void setup() {
 }
 
 void loop() {
-  // Aquí puedes agregar notificaciones periódicas o acciones basadas en eventos.
   delay(1000);
 }
