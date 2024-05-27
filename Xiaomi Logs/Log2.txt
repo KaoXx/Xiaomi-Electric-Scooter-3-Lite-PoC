@@ -1,0 +1,160 @@
+nRF Connect, 2024-05-10
+dreame.scooter.epro (68:AB:BC:4E:6C:4E)
+V	12:30:39.100	Disconnecting...
+D	12:30:39.100	gatt.disconnect()
+D	12:30:39.120	[Callback] Connection state changed with status: 0 and new state: DISCONNECTED (0)
+I	12:30:39.120	Disconnected
+D	12:30:43.023	[Broadcast] Action received: android.bluetooth.device.action.ACL_DISCONNECTED
+D	12:30:43.388	gatt.close()
+D	12:30:43.391	wait(200)
+V	12:30:43.593	Connecting to 68:AB:BC:4E:6C:4E...
+D	12:30:43.593	gatt = device.connectGatt(autoConnect = false, TRANSPORT_LE, preferred PHY = LE 1M)
+D	12:30:44.432	[Callback] Connection state changed with status: 0 and new state: CONNECTED (2)
+I	12:30:44.432	Connected to 68:AB:BC:4E:6C:4E
+V	12:30:44.455	Discovering services...
+D	12:30:44.455	gatt.discoverServices()
+D	12:30:44.459	[Broadcast] Action received: android.bluetooth.device.action.ACL_CONNECTED
+I	12:30:44.887	Connection parameters updated (interval: 22.5ms, latency: 0, timeout: 900ms)
+I	12:30:45.114	Connection parameters updated (interval: 7.5ms, latency: 0, timeout: 5000ms)
+D	12:30:45.716	[Callback] Services discovered with status: 0
+I	12:30:45.717	Services discovered
+V	12:30:45.781	Generic Attribute (0x1801)
+- Service Changed [I] (0x2A05)
+   Client Characteristic Configuration (0x2902)
+Generic Access (0x1800)
+- Device Name [R] (0x2A00)
+- Appearance [R] (0x2A01)
+- Peripheral Preferred Connection Parameters [R] (0x2A04)
+- Central Address Resolution [R] (0x2AA6)
+Unknown Service (0000fe95-0000-1000-8000-00805f9b34fb)
+- Unknown Characteristic [R] (00000004-0000-1000-8000-00805f9b34fb)
+- Unknown Characteristic [N WNR] (00000010-0000-1000-8000-00805f9b34fb)
+   Client Characteristic Configuration (0x2902)
+- Unknown Characteristic [N WNR] (00000016-0000-1000-8000-00805f9b34fb)
+   Client Characteristic Configuration (0x2902)
+- Unknown Characteristic [N W] (00000017-0000-1000-8000-00805f9b34fb)
+   Client Characteristic Configuration (0x2902)
+- Unknown Characteristic [N WNR] (00000018-0000-1000-8000-00805f9b34fb)
+   Client Characteristic Configuration (0x2902)
+- Unknown Characteristic [N WNR] (0000001a-0000-1000-8000-00805f9b34fb)
+   Client Characteristic Configuration (0x2902)
+- Unknown Characteristic [N WNR] (0000001b-0000-1000-8000-00805f9b34fb)
+   Client Characteristic Configuration (0x2902)
+- Unknown Characteristic [N WNR] (0000001c-0000-1000-8000-00805f9b34fb)
+   Client Characteristic Configuration (0x2902)
+Unknown Service (00000100-0065-6c62-2e74-6f696d2e696d)
+- Unknown Characteristic [WNR] (00000101-0065-6c62-2e74-6f696d2e696d)
+- Unknown Characteristic [N] (00000102-0065-6c62-2e74-6f696d2e696d)
+   Client Characteristic Configuration (0x2902)
+Unknown Service (00001000-0065-6c62-2e74-6f696d2e696d)
+- Unknown Characteristic [W] (00001001-0065-6c62-2e74-6f696d2e696d)
+- Unknown Characteristic [N R] (00001002-0065-6c62-2e74-6f696d2e696d)
+   Client Characteristic Configuration (0x2902)
+- Unknown Characteristic [N R] (00001003-0065-6c62-2e74-6f696d2e696d)
+   Client Characteristic Configuration (0x2902)
+D	12:30:45.781	gatt.setCharacteristicNotification(00002a05-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.784	gatt.setCharacteristicNotification(00000010-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.788	gatt.setCharacteristicNotification(00000016-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.790	gatt.setCharacteristicNotification(00000017-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.792	gatt.setCharacteristicNotification(00000018-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.794	gatt.setCharacteristicNotification(0000001a-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.796	gatt.setCharacteristicNotification(0000001b-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.798	gatt.setCharacteristicNotification(0000001c-0000-1000-8000-00805f9b34fb, true)
+D	12:30:45.800	gatt.setCharacteristicNotification(00000102-0065-6c62-2e74-6f696d2e696d, true)
+D	12:30:45.802	gatt.setCharacteristicNotification(00001002-0065-6c62-2e74-6f696d2e696d, true)
+D	12:30:45.805	gatt.setCharacteristicNotification(00001003-0065-6c62-2e74-6f696d2e696d, true)
+I	12:30:45.814	Connection parameters updated (interval: 22.5ms, latency: 0, timeout: 900ms)
+I	12:31:16.832	Notification received from 0000001c-0000-1000-8000-00805f9b34fb, value: (0x) 00-03-01-02-03
+A	12:31:16.833	"(0x) 00-03-01-02-03" received
+I	12:31:16.901	Notification received from 0000001c-0000-1000-8000-00805f9b34fb, value: (0x) 01-04-30-32-30-38
+A	12:31:16.901	"(0x) 01-04-30-32-30-38" received
+I	12:31:16.965	Notification received from 0000001c-0000-1000-8000-00805f9b34fb, value: (0x) 02-0F-31-32-33-34-35-2F-41-38-51-36-30-30-30-30-32
+A	12:31:16.965	"(0x) 02-0F-31-32-33-34-35-2F-41-38-51-36-30-30-30-30-32" received
+I	12:31:17.057	Notification received from 0000001c-0000-1000-8000-00805f9b34fb, value: (0x) 03-0D-52-54-4C-38-37-36-32-2E-44-76-74-2E-31
+A	12:31:17.057	"(0x) 03-0D-52-54-4C-38-37-36-32-2E-44-76-74-2E-31" received
+I	12:31:17.363	Notification received from 00000016-0000-1000-8000-00805f9b34fb, value: (0x) 00-00-04-00-06-F2
+A	12:31:17.363	"(0x) 00-00-04-00-06-F2" received
+I	12:31:17.575	Notification received from 00000016-0000-1000-8000-00805f9b34fb, value: (0x) 00-00-04-01-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2
+A	12:31:17.575	"(0x) 00-00-04-01-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2-F2" received
+I	12:31:17.889	Notification received from 00000016-0000-1000-8000-00805f9b34fb, value: (0x) 00-00-01-01
+A	12:31:17.889	"(0x) 00-00-01-01" received
+I	12:31:17.980	Notification received from 00000016-0000-1000-8000-00805f9b34fb, value: (0x) 00-00-01-00
+A	12:31:17.980	"(0x) 00-00-01-00" received
+I	12:31:18.001	Notification received from 00000016-0000-1000-8000-00805f9b34fb, value: (0x) 00-00-02-03-37-96-C7-0D-F1-76-EF-EA-B0-3C-7B-3C-F3-11-4C-0B-C9-95-3A-51-FC-4F-DC-A8-69-89-8A-29-39-2B-9F-8C-01-01-6D-33-1F-19-DB-90-B1-51-98-49-BB-26-14-39-67-0D-DD-A0-32-58-24-7B-49-A1-1D-EA-85-07-DE-19
+A	12:31:18.001	"(0x) 00-00-02-03-37-96-C7-0D-F1-76-EF-EA-B0-3C-7B-3C-F3-11-4C-0B-C9-95-3A-51-FC-4F-DC-A8-69-89-8A-29-39-2B-9F-8C-01-01-6D-33-1F-19-DB-90-B1-51-98-49-BB-26-14-39-67-0D-DD-A0-32-58-24-7B-49-A1-1D-EA-85-07-DE-19" received
+I	12:31:18.113	Notification received from 00000016-0000-1000-8000-00805f9b34fb, value: (0x) 00-00-01-01
+A	12:31:18.113	"(0x) 00-00-01-01" received
+I	12:31:18.203	Notification received from 00000016-0000-1000-8000-00805f9b34fb, value: (0x) 00-00-01-00
+A	12:31:18.203	"(0x) 00-00-01-00" received
+I	12:31:18.217	Notification received from 00000010-0000-1000-8000-00805f9b34fb, value: (0x) 21-00-00-00
+A	12:31:18.218	"(0x) 21-00-00-00" received
+I	12:31:18.950	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 01-00-F0-73-33-BD-18-1E-3A-DF-D4-09-EE-01-13-AE-84-3B-59
+A	12:31:18.950	"(0x) 01-00-F0-73-33-BD-18-1E-3A-DF-D4-09-EE-01-13-AE-84-3B-59" received
+I	12:31:19.082	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 02-00-CA-89-0F-46-08-C9-9E-01-76-E6
+A	12:31:19.082	"(0x) 02-00-CA-89-0F-46-08-C9-9E-01-76-E6" received
+I	12:31:19.104	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 03-00-83-88-AB-99-EB-74-AD-3A-E5-54-4F-77-04-D3-0A-FA-EB
+A	12:31:19.104	"(0x) 03-00-83-88-AB-99-EB-74-AD-3A-E5-54-4F-77-04-D3-0A-FA-EB" received
+I	12:31:19.239	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 04-00-1D-7C-88-44-B0-7A-43-01-01-8E-55-FA-DC
+A	12:31:19.239	"(0x) 04-00-1D-7C-88-44-B0-7A-43-01-01-8E-55-FA-DC" received
+I	12:31:19.582	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 05-00-44-23-A5-30-31-1A-EA-78-DA-02-62-B4-B9
+A	12:31:19.582	"(0x) 05-00-44-23-A5-30-31-1A-EA-78-DA-02-62-B4-B9" received
+I	12:31:19.601	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 06-00-25-84-2C-AB-84-A4-68-83-90-3D
+A	12:31:19.601	"(0x) 06-00-25-84-2C-AB-84-A4-68-83-90-3D" received
+I	12:31:19.625	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 07-00-88-EE-A9-3A-73-60-45-20-D7-9D
+A	12:31:19.625	"(0x) 07-00-88-EE-A9-3A-73-60-45-20-D7-9D" received
+I	12:31:19.629	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 08-00-C2-D9-6A-D4-75-E2-21-5B-46-99
+A	12:31:19.629	"(0x) 08-00-C2-D9-6A-D4-75-E2-21-5B-46-99" received
+I	12:31:19.654	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 09-00-42-EC-DA-C0-AE-A1-0B-B5-C1-20-7E-72-16
+A	12:31:19.654	"(0x) 09-00-42-EC-DA-C0-AE-A1-0B-B5-C1-20-7E-72-16" received
+I	12:31:19.696	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 0A-00-85-ED-3E-53-6A-91-70-08-0D-FE-C3-46-2B
+A	12:31:19.696	"(0x) 0A-00-85-ED-3E-53-6A-91-70-08-0D-FE-C3-46-2B" received
+I	12:31:19.713	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 0B-00-AE-1D-05-AA-E8-13-5B-3D-BD-2C-D4-44-58
+A	12:31:19.713	"(0x) 0B-00-AE-1D-05-AA-E8-13-5B-3D-BD-2C-D4-44-58" received
+I	12:31:19.734	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 0C-00-B1-8D-E4-29-AD-72-05-85-89-A8
+A	12:31:19.734	"(0x) 0C-00-B1-8D-E4-29-AD-72-05-85-89-A8" received
+I	12:31:19.738	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 0D-00-0A-CB-DF-5A-71-58-03-3E-C2-68
+A	12:31:19.738	"(0x) 0D-00-0A-CB-DF-5A-71-58-03-3E-C2-68" received
+I	12:31:19.757	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 0E-00-08-E8-65-9E-FE-26-1E-9C-C7-F4
+A	12:31:19.757	"(0x) 0E-00-08-E8-65-9E-FE-26-1E-9C-C7-F4" received
+I	12:31:19.825	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 0F-00-72-A3-BA-57-00-12-56-24-D5-5D
+A	12:31:19.825	"(0x) 0F-00-72-A3-BA-57-00-12-56-24-D5-5D" received
+I	12:31:19.846	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 10-00-86-7B-6D-FD-F6-9A-63-4B-3B-01
+A	12:31:19.846	"(0x) 10-00-86-7B-6D-FD-F6-9A-63-4B-3B-01" received
+I	12:31:19.851	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 11-00-D1-BF-5D-98-34-21-67-9C-39-D9-E9-03-13-EA-A7-85-8C
+A	12:31:19.851	"(0x) 11-00-D1-BF-5D-98-34-21-67-9C-39-D9-E9-03-13-EA-A7-85-8C" received
+I	12:31:19.875	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 12-00-D0-B1-99-4D-42-11-64-55-0E-B3-46
+A	12:31:19.875	"(0x) 12-00-D0-B1-99-4D-42-11-64-55-0E-B3-46" received
+I	12:31:19.887	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 13-00-D8-0A-32-37-68-49-CD-18-6F-37
+A	12:31:19.887	"(0x) 13-00-D8-0A-32-37-68-49-CD-18-6F-37" received
+I	12:31:19.903	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 14-00-EC-4E-90-4C-8D-2E-C5-52-D6-D5
+A	12:31:19.903	"(0x) 14-00-EC-4E-90-4C-8D-2E-C5-52-D6-D5" received
+I	12:31:19.915	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 15-00-45-97-49-C7-D3-9D-B9-60-10-88-BD-0B-E8-FA-14-53-9E
+A	12:31:19.915	"(0x) 15-00-45-97-49-C7-D3-9D-B9-60-10-88-BD-0B-E8-FA-14-53-9E" received
+I	12:31:20.140	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 16-00-63-33-F2-10-D5-68-8F-AD-59-68-9A-2A-2E-3A-ED-B5-BE
+A	12:31:20.140	"(0x) 16-00-63-33-F2-10-D5-68-8F-AD-59-68-9A-2A-2E-3A-ED-B5-BE" received
+I	12:31:20.161	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 17-00-B3-6A-E9-11-F8-C8-6E-EE-55-6C-BE-00-EB-C5-D9-2A
+A	12:31:20.161	"(0x) 17-00-B3-6A-E9-11-F8-C8-6E-EE-55-6C-BE-00-EB-C5-D9-2A" received
+I	12:32:20.909	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 18-00-7D-DD-AD-D4-5A-8B-D5-59-48-81
+A	12:32:20.909	"(0x) 18-00-7D-DD-AD-D4-5A-8B-D5-59-48-81" received
+I	12:32:24.105	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 19-00-2B-7A-52-A5-F1-D2-37-30-1E-7D
+A	12:32:24.105	"(0x) 19-00-2B-7A-52-A5-F1-D2-37-30-1E-7D" received
+I	12:32:27.503	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 1A-00-64-CC-CE-B8-75-C8-2B-49-FB-3B
+A	12:32:27.503	"(0x) 1A-00-64-CC-CE-B8-75-C8-2B-49-FB-3B" received
+I	12:32:30.045	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 1B-00-56-BA-CC-B1-61-7A-B4-50-DF-0D
+A	12:32:30.045	"(0x) 1B-00-56-BA-CC-B1-61-7A-B4-50-DF-0D" received
+I	12:32:37.650	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 1C-00-C6-59-9C-E3-86-C8-F1-50-DF-E3
+A	12:32:37.650	"(0x) 1C-00-C6-59-9C-E3-86-C8-F1-50-DF-E3" received
+I	12:32:40.597	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 1D-00-0C-88-55-62-9C-20-3F-44-61-1C
+A	12:32:40.597	"(0x) 1D-00-0C-88-55-62-9C-20-3F-44-61-1C" received
+I	12:32:44.692	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 1E-00-0E-7E-29-CB-3B-E8-36-C4-0C-F2
+A	12:32:44.692	"(0x) 1E-00-0E-7E-29-CB-3B-E8-36-C4-0C-F2" received
+I	12:32:48.179	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 1F-00-11-BD-F6-F7-22-B1-06-19-88-5F
+A	12:32:48.179	"(0x) 1F-00-11-BD-F6-F7-22-B1-06-19-88-5F" received
+I	12:32:50.586	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 20-00-98-FB-62-F4-20-27-55-42-5F-6B
+A	12:32:50.586	"(0x) 20-00-98-FB-62-F4-20-27-55-42-5F-6B" received
+I	12:32:55.154	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 21-00-6B-2B-AC-1D-09-12-BE-B5-45-7B
+A	12:32:55.154	"(0x) 21-00-6B-2B-AC-1D-09-12-BE-B5-45-7B" received
+I	12:33:06.009	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 22-00-F0-07-90-43-28-D5-F2-8E-4E-6B
+A	12:33:06.009	"(0x) 22-00-F0-07-90-43-28-D5-F2-8E-4E-6B" received
+I	12:33:06.009	Notification received from 00000102-0065-6c62-2e74-6f696d2e696d, value: (0x) 23-00-A9-28-1F-72-72-4D-8C-93-4C-58
+A	12:33:06.009	"(0x) 23-00-A9-28-1F-72-72-4D-8C-93-4C-58" received

@@ -7,10 +7,10 @@ BLEAdvertising *pAdvertising;
 
 void setup() {
   Serial.begin(115200);
-  Serial.println("Starting Enhanced BLE Advertising Flood");
+  Serial.println("Starting BLE Advertising Flood");
 
   // Initialize BLE
-  BLEDevice::init("ESP32_Interference");
+  BLEDevice::init("ESP32_Flood");
 
   // Set the maximum transmission power
   esp_ble_tx_power_set(ESP_BLE_PWR_TYPE_ADV, ESP_PWR_LVL_P9);  // Max power level
