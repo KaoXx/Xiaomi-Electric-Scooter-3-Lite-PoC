@@ -1,0 +1,2 @@
+ADD_SCENE(ScooterKiller_mode, ScooterKillerMode)
+ADD_SCENE(ScooterKiller_mode_custom, ScooterKillerModeCustom)
