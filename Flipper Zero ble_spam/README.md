@@ -4,7 +4,7 @@
 
 ## What
 
-This Flipper application ("FAP") spams broadcast packets to Apple, Android, and Windows devices, which may be up to 5 meters away.
+This Flipper application ("FAP") spams broadcast packets to Apple, Android, Windows devices and also tested on Xiaomi electric scooter lite 3, which may be up to 5 meters away.
 
 ## Builds
 
